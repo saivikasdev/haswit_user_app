@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:outlook/constants.dart';
+import 'package:outlook/saigopi.dart';
 import 'package:outlook/screens/main/main_screen.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Haswit Organization',
       theme: ThemeData(),
       home: MainScreen(),
     );

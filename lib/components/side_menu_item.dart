@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../constants.dart';
@@ -29,12 +30,19 @@ class SideMenuItem extends StatelessWidget {
         onTap: press,
         child: Row(
           children: [
-            (isActive || isHover)
-                ? WebsafeSvg.asset(
-                    "assets/Icons/Angle right.svg",
-                    width: 15,
-                  )
-                : SizedBox(width: 15),
+            Column(
+              children: [
+                (isActive || isHover)
+                    ? WebsafeSvg.asset(
+                        "assets/Icons/Angle right.svg",
+                        width: 15,
+                      )
+                    : SizedBox(width: 15),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
             SizedBox(width: kDefaultPadding / 4),
             Expanded(
               child: Container(
@@ -51,16 +59,19 @@ class SideMenuItem extends StatelessWidget {
                     WebsafeSvg.asset(
                       iconSrc,
                       height: 20,
-                      color: (isActive || isHover) ? kPrimaryColor : kGrayColor,
                     ),
                     SizedBox(width: kDefaultPadding * 0.75),
-                    Text(
-                      title,
-                      style: Theme.of(context).textTheme.button.copyWith(
-                            color:
-                                (isActive || isHover) ? kTextColor : kGrayColor,
-                          ),
-                    ),
+                    Text(title,
+                        style: (isActive || isHover)
+                            ? GoogleFonts.lato(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black)
+                            : GoogleFonts.lato(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black38)
+                        ),
                     Spacer(),
                     if (itemCount != null) CounterBadge(count: itemCount)
                   ],
